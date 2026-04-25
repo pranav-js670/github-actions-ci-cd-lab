@@ -1,0 +1,26 @@
+name: Hello World Workflow - Step Types
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  hello-world-inline-bash:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, GitHub Actions!"
+      - run: echo "From an inline bash script in a GitHub Actions Workflow"
+
+  hello-world-inline-python:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello, GitHub Actions!"
+      - run: echo "From an inline Python script in a GitHub Actions Workflow"
+        shell: python
+      
+  say-hello-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+           script: |
+              console.log("Hello, from JavaScript Action!")
