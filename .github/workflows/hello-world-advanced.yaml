@@ -12,10 +12,13 @@ jobs:
 
   hello-world-inline-python:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: python
     steps:
       - run: print("Hello, GitHub Actions!")
       - run: print("From an inline Python script in a GitHub Actions Workflow")
-        shell: python
+        
       
   say-hello-action:
     runs-on: ubuntu-latest
