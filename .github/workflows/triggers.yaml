@@ -20,6 +20,9 @@ on:
     # can also add a Path filter
     # good for monorepos when you want to save 
     # running minutes
+    # paths:
+    #   - "03-core-features/filters/*.md"
+    #   - "!03-core-features/filters/*.txt"
 
   schedule:
     - cron: "0 0 * * *"
