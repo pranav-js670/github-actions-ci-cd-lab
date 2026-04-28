@@ -1,0 +1,39 @@
+# Almost any GitHub event can trigger a workflow
+# Trigger manually - workflow_dispatch
+# Push to branch - works with specific branches as well
+# Create/update Pull request - works with specific branches as well
+# CRON schedule
+
+name: Types of Triggers workflow
+
+on:
+  push:
+    branches:
+      - "example-branch/*"
+
+  pull_request: 
+    types: 
+      - opened
+      - synchronize
+      - reopened
+
+    # can also add a Path filter
+    # good for monorepos when you want to save 
+    # running minutes
+
+  schedule:
+    - cron: "0 0 * * *"
+
+  workflow_dispatch: 
+
+jobs:
+  echo-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump full event JSON
+        run: |
+         - echo "=== $GITHUB_EVENT_NAME payload ==="
+         - cat "$GITHUB_EVENT_PATH"
+
+
+   
